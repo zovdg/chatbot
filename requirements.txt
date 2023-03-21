@@ -1,0 +1,8 @@
+flask
+flask-socketio
+openai
+gradio
+
+pydantic
+pydantic[dotenv]
+
