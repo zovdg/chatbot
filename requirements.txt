@@ -1,7 +1,7 @@
 flask
-flask-socketio
+# flask-socketio
 openai
-gradio
+# gradio
 
 pydantic
 pydantic[dotenv]

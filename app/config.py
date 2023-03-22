@@ -9,8 +9,15 @@ class OpenAI(BaseModel):
     model: str = DEFAULT_OPENAI_MODEL
 
 
+class Server(BaseModel):
+    debug: bool = False
+    host: str = None
+    port: int = 18080
+
+
 class Settings(BaseSettings):
     openai: OpenAI = OpenAI()
+    server: Server = Server()
 
     class Config:
         env_file = '.env'
