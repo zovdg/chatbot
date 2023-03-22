@@ -26,5 +26,5 @@ clean:
 ifeq ($(UNAME),Darwin)
 	rm -dRf build
 else
-	rm -f build
+	rm -rf build
 endif

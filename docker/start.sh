@@ -9,7 +9,7 @@ else
 fi
 
 function start_server() {
-  echo "Start api..."
+  echo "Start server..."
   python app/cmd/main.py
 }
 
