@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  api:
+    build: ./
+    image: chatbot:v1.0
+    container_name: chatbot
+    restart: always
+    ports:
+      - "18080:18008"
+    command: chatbot
+    environment:
+      - SERVER__DEBUG=1
+      - OPENAI__API_KEY=sk-

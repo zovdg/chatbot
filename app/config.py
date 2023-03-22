@@ -2,6 +2,8 @@
 from pydantic import BaseModel, BaseSettings
 
 DEFAULT_OPENAI_MODEL = 'gpt-3.5-turbo-0301'
+DEFAULT_HOST = '0.0.0.0'
+DEFAULT_PORT = 18080
 
 
 class OpenAI(BaseModel):
@@ -11,8 +13,8 @@ class OpenAI(BaseModel):
 
 class Server(BaseModel):
     debug: bool = False
-    host: str = None
-    port: int = 18080
+    host: str = DEFAULT_HOST
+    port: int = DEFAULT_PORT
 
 
 class Settings(BaseSettings):
@@ -22,7 +24,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = '.env'
         env_file_encoding = 'utf-8'
-        env_nested_delimiter = '.'
+        env_nested_delimiter = '__'
 
 
 settings = Settings()
