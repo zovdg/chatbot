@@ -7,10 +7,12 @@ image=${project}:${version}
 image_tar=${project}-${version}.tar.gz
 
 
-all: build setimagejs pkg clean
+all: build docker_save setimagejs pkg clean
 
 build:
 	docker-compose build
+
+docker_save:
 	mkdir -p build/images
 	docker save ${image} -o build/images/${image_tar}
 
