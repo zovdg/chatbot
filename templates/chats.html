@@ -19,13 +19,13 @@
             {% if context.is_bot %}
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title=""
                data-original-title="Edward Fletcher">
-                <img src="img/avatar2.png" alt="...">
+                <img src="{{ url_for('static', path='/img/avatar2.png') }}" alt="...">
                 <i></i>
             </a>
             {% else %}
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title=""
                data-original-title="June Lane">
-                <img src="img/avatar1.png" alt="...">
+                <img src="{{ url_for('static', path='/img/avatar1.png') }}" alt="...">
                 <i></i>
             </a>
             {% endif %}
