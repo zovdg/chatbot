@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}ChatBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="{{ url_for('static', path='/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', path='/css/chatbot.css') }}" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container bootstrap snippets bootdeys">
+        <!--div class="col-md-7 col-xs-12 col-md-offset-2"-->
+        <div class="col-md-10 col-xs-10 col-md-offset-1">
+            <!-- panel -->
+            <div class="panel" id="chat">
+                <!-- panel heading -->
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="icon wb-chat-text" aria-hidden="true"></i> ChatBot
+                    </h3>
+                </div>
+
+                {% block chats %}
+                <!-- panel body -->
+                <!-- panel footer -->
+                {% endblock %}
+            </div>
+        </div>
+        <!-- panel -->
+    </div>
+
+    {% block scripts %}
+
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="{{ url_for('static', path='/js/jquery-1.10.2.min.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', path='/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript"></script>
+    {% endblock %}
+
+</body>
+
+</html>

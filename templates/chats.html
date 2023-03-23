@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}ChatBot{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block chats %}
+
+<!-- panel body -->
+<div class="panel-body">
+    <!-- chats -->
+    <div class="chats">
+
+    {% for context in contexts %}
+    <div class="chat {{ 'chat-left' if context.is_bot }}">
+        <div class="chat-avatar">
+            {% if context.is_bot %}
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title=""
+               data-original-title="Edward Fletcher">
+                <img src="img/avatar2.png" alt="...">
+                <i></i>
+            </a>
+            {% else %}
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title=""
+               data-original-title="June Lane">
+                <img src="img/avatar1.png" alt="...">
+                <i></i>
+            </a>
+            {% endif %}
+        </div>
+        <div class="chat-body">
+            <div class="chat-content">
+                <p>{{ context.message }}</p>
+                <time class="chat-time" datetime="2015-07-01T11:40">{{ context.time }}</time>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <!-- end of chats-->
+</div>
+
+<!-- panel footer -->
+<div class="panel-footer">
+    <form action="/" method="post">
+        <input type="hidden" id="history" name="history" value="{{ history }}"/>
+        <div class="input-group">
+            <!--input type="text" name="message" class="form-control" placeholder="Say something" required /-->
+            <textarea rows="1" name="message" class="form-control" placeholder="Say something"></textarea>
+            <span class="input-group-btn">
+                <button name="cmd" value="submit" class="btn btn-primary" type="submit">Send</button>
+            </span>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button name="cmd" value="clear" class="btn btn-red" type="submit">Clear</button>
+            </span>
+        </div>
+    </form>
+    <br>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+{% endblock %}

@@ -38,6 +38,8 @@ RUN addgroup --system app && adduser --system --group app
 WORKDIR /app
 
 COPY ./app ./app
+COPY ./static ./static
+COPY ./templates ./templates
 # COPY ./alembic.ini ./alembic.ini
 COPY ./docker /usr/local/bin/
 

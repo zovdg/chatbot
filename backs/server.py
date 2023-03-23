@@ -124,7 +124,8 @@ def home():
 
 
 def main():
-    app.run(host=settings.server.host,
-            port=settings.server.port,
-            debug=settings.server.debug)
-
+    app.run(
+        host=settings.server.host,
+        port=settings.server.port,
+        debug=settings.server.debug,
+    )

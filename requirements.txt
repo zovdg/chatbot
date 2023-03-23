@@ -1,8 +1,12 @@
-flask
-# flask-socketio
-openai
-# gradio
 
+openai
 pydantic
 pydantic[dotenv]
 
+fastapi
+jinja2
+requests
+uvicorn
+Markdown
+pytest
+python-multipart
