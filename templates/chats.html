@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}ChatBot{% endblock %}
+{% block title %}{% endblock %}
 {% block head %}
 {{ super() }}
 
@@ -14,9 +14,9 @@
     <div class="chats">
 
     {% for context in contexts %}
-    <div class="chat {{ 'chat-left' if context.is_bot }}">
+    <div class="chat {{ 'chat-left' if context.role == 'ChatGPT' }}">
         <div class="chat-avatar">
-            {% if context.is_bot %}
+            {% if context.role == 'ChatGPT' %}
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title=""
                data-original-title="Edward Fletcher">
                 <img src="{{ url_for('static', path='/img/avatar2.png') }}" alt="...">
@@ -32,7 +32,11 @@
         </div>
         <div class="chat-body">
             <div class="chat-content">
-                <p>{{ context.message }}</p>
+                <p>
+                    {% autoescape false %}
+                    {{ context.message | replace("\n", "<br/>") | safe }}
+                    {% endautoescape %}
+                </p>
                 <time class="chat-time" datetime="2015-07-01T11:40">{{ context.time }}</time>
             </div>
         </div>

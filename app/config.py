@@ -5,25 +5,19 @@ DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 18080
 
 
-class OpenAI(BaseModel):
-    api_key: str = None
-    model: str = DEFAULT_OPENAI_MODEL
-
-
-class Server(BaseModel):
+class Settings(BaseSettings):
     debug: bool = False
     host: str = DEFAULT_HOST
     port: int = DEFAULT_PORT
 
-
-class Settings(BaseSettings):
-    openai: OpenAI = OpenAI()
-    server: Server = Server()
+    # openai
+    openai_api_key: str = None
+    openai_model: str = DEFAULT_OPENAI_MODEL
 
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
-        env_nested_delimiter = "__"
+        # env_nested_delimiter = "__"
 
 
 settings = Settings()

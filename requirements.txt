@@ -12,3 +12,5 @@ pytest
 python-multipart
 
 pytz
+
+dependency-injector
