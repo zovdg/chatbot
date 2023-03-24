@@ -10,8 +10,8 @@ fi
 
 function start_server() {
   echo "Start server..."
-  # python app/cmd/main.py
-  uvicorn app.main:app --reload --host 0.0.0.0 --port 18080
+  python app/cmd/chatbot.py
+  # uvicorn app.main:app --reload --host 0.0.0.0 --port 18080
 }
 
 function main() {
