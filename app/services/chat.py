@@ -2,6 +2,9 @@ import logging
 
 from typing import Optional, List
 
+from app.config import settings
+from app.openai.client import ask_chat_gpt
+
 from app.db.base import DB
 from app.db.memory import InMemoryDB
 
@@ -29,12 +32,13 @@ class ChatService:
             LOG.warning("Human said nothing...")
             return contexts
 
-        human = models.Chat.human_speak(message)
-        gpt = models.Chat.chat_gpt_speak("xxxxxxxxx\nxxxxxxx\nxxx")
+        if settings.debug:
+            output = "...debug..."
+        else:
+            output = ask_chat_gpt(question=message, contexts=contexts)
 
-        contexts.append(human)
-        contexts.append(gpt)
-
+        contexts.append(models.Chat.human_speak(message))
+        contexts.append(models.Chat.chat_gpt_speak(output))
         return contexts
 
     def clear(self, chat_id: str):

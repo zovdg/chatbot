@@ -50,35 +50,6 @@ def chats(
         contexts = chat_service.greetings(chat_id)
     else:
         contexts = chat_service.chat(chat_id=chat_id, message=message)
-        """
-        contexts = json.loads(history)
-        if message:
-            if settings.debug:
-                chatgpt_raw_output = "xxxxxxxxxxxxxx\nxxxxxxxxxxxxx"
-            else:
-                chatgpt_raw_output = chat_completion(
-                    user_input=message,
-                    impersonated_role="",
-                    explicit_input="",
-                    chat_history="",
-                )
-
-            contexts.append(
-                {
-                    "message": message.replace("\n", "<br>"),
-                    "is_bot": False,
-                    "time": utils.current_time(),
-                }
-            )
-            contexts.append(
-                {
-                    "message": chatgpt_raw_output.replace("\n", "<br>"),
-                    "is_bot": True,
-                    "time": utils.current_time(),
-                }
-            )
-        """
-    # history = json.dumps(contexts)
     return templates.TemplateResponse(
         "chats.html",
         context={"request": request, "contexts": [c.dict() for c in contexts]},
