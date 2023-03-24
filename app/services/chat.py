@@ -18,10 +18,9 @@ class ChatService:
         self.db = db or InMemoryDB()
 
     def greetings(self, chat_id: str) -> List[models.Chat]:
-        self.db.set(key=chat_id, value=[])
-        contexts = self.db.get(key=chat_id)
-        contexts.append(models.Chat.chat_gpt_speak("What can I help you?"))
-        return contexts
+        if not self.db.exist(chat_id):
+            self.db.set(key=chat_id, value=[models.Chat.chat_gpt_speak("What can I help you?")])
+        return self.db.get(key=chat_id)
 
     def chat(self, chat_id: str, message: Optional[str] = None) -> List[models.Chat]:
         if not self.db.exist(chat_id):
