@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     # fake_ask
     fake_ask: bool = False
 
+    # memory_db_size
+    memory_db_size: int = 100
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

@@ -31,12 +31,14 @@ class ChatService:
             LOG.warning("Human said nothing...")
             return contexts
 
+        human = models.Chat.human_speak(message)
+
         if settings.fake_ask:
             output = "...debug..."
         else:
             output = ask_chat_gpt(question=message, contexts=contexts)
 
-        contexts.append(models.Chat.human_speak(message))
+        contexts.append(human)
         contexts.append(models.Chat.chat_gpt_speak(output))
         return contexts
 
