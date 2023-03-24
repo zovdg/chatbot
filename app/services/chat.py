@@ -31,7 +31,7 @@ class ChatService:
             LOG.warning("Human said nothing...")
             return contexts
 
-        if settings.debug:
+        if settings.fake_ask:
             output = "...debug..."
         else:
             output = ask_chat_gpt(question=message, contexts=contexts)
