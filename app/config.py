@@ -1,6 +1,7 @@
 from pydantic import BaseModel, BaseSettings
 
 DEFAULT_OPENAI_MODEL = "gpt-3.5-turbo-0301"
+DEFAULT_OPENAI_TEMPERATURE = 0.7
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 18080
 
@@ -13,6 +14,7 @@ class Settings(BaseSettings):
     # openai
     openai_api_key: str = None
     openai_model: str = DEFAULT_OPENAI_MODEL
+    openai_temperature: float = DEFAULT_OPENAI_TEMPERATURE
 
     # fake_ask
     fake_ask: bool = False

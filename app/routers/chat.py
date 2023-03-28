@@ -42,8 +42,9 @@ async def home(
     LOG.debug(f"client {request.client.host}, with chat id: {chat_id} coming...")
 
     contexts = chat_service.greetings(chat_id)
+    LOG.debug("contents: %s " % contexts)
     response = templates.TemplateResponse(
-        "chats.html", {"request": request, "contexts": [c.dict() for c in contexts]}
+        "chats.html", {"request": request, "contexts": contexts}
     )
     if should_set_cookie:
         await set_cookie(response, chat_id)
@@ -69,7 +70,8 @@ def chats(
         contexts = chat_service.greetings(chat_id)
     else:
         contexts = chat_service.chat(chat_id=chat_id, message=message)
+    LOG.debug("contents: %s " % contexts)
     return templates.TemplateResponse(
         "chats.html",
-        context={"request": request, "contexts": [c.dict() for c in contexts]},
+        context={"request": request, "contexts": contexts},
     )

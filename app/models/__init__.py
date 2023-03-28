@@ -1,4 +1,4 @@
-from .chat import Chat, Role
+from .chat import Chat, Role, Message
 
 
-__all__ = ["Role", "Chat"]
+__all__ = ["Role", "Chat", "Message"]

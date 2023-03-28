@@ -14,9 +14,9 @@
     <div class="chats">
 
     {% for context in contexts %}
-    <div class="chat {{ 'chat-left' if context.role == 'ChatGPT' }}">
+    <div class="chat {{ 'chat-left' if context.role == 'assistant' }}">
         <div class="chat-avatar">
-            {% if context.role == 'ChatGPT' %}
+            {% if context.role == 'assistant' %}
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title=""
                data-original-title="Edward Fletcher">
                 <img src="{{ url_for('static', path='/img/avatar2.png') }}" alt="...">
@@ -34,7 +34,7 @@
             <div class="chat-content">
                 <p>
                     {% autoescape false %}
-                    {{ context.message | replace("\n", "<br/>") | safe }}
+                    {{ context.content | replace("\n", "<br/>") | safe }}
                     {% endautoescape %}
                 </p>
                 <time class="chat-time" datetime="2015-07-01T11:40">{{ context.time }}</time>

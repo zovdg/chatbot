@@ -1,4 +1,3 @@
-
 from typing import Any, Optional
 from lru import LRU
 
@@ -57,4 +56,3 @@ class LRUInMemoryDB(DB):
     def exist(self, key: str) -> bool:
         """Check key is in db or not."""
         return key in self.stores
-
