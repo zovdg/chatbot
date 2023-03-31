@@ -2,10 +2,13 @@
 
 ## Next
 
-- [ ] use uvicorn from cmd to function.
 - [ ] develop login feature.
-- [ ] openai context and history feature.
-- [ ] Wrap output.
+
+## 2023-3-29
+
+* use uvicorn from cmd to function.
+* openai context and history feature.
+* Wrap output.
 
 ## 2023-3-23
 
